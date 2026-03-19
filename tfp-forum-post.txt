@@ -1,0 +1,25 @@
+[B]Pool Chemistry Advisor — Free ChatGPT Tool Using TFP Methodology[/B]
+
+I've been using Pool Math to track my water chemistry and wanted a way to get quick, TFP-grounded analysis without having to manually look everything up each time. So I built a ChatGPT custom GPT that pulls your Pool Math data and gives you specific recommendations based on TFP methodology — FC/CYA table, proper dosing amounts, weather impact, the whole deal.
+
+It connects directly to your Pool Math share link, so you can just say "how's my pool?" and it fetches your latest readings and recent test/dosing history. It'll calculate your FC burn rate, predict what your next test will look like, and give you a short list of what to do today with specific amounts in oz for your pool size.
+
+A few things it does:
+[LIST]
+[*]Evaluates FC against your CYA level using the TFP FC/CYA table
+[*]Calculates FC burn rate from your recent Pool Math logs
+[*]Gives specific dosing amounts scaled to your pool volume
+[*]Factors in weather (temp, UV, rain) when you provide it
+[*]Walks you through SLAM if needed
+[*]Only recommends TFP-approved chemicals — no tabs, no algaecide, no pool store products
+[/LIST]
+
+[B]Try it:[/B] [URL='https://chatgpt.com/g/g-69bb372dbafc81919c305b6601e5307c-pool-chemistry-advisor-tfp']Pool Chemistry Advisor (TFP) on ChatGPT[/URL] (requires ChatGPT Plus)
+
+To connect your Pool Math data: open Pool Math → Settings → Share → enable sharing → copy your share link. Then just paste that URL into the chat and ask "how's my pool?"
+
+If you want to dig into how it works or customize it for your own setup, the source is on GitHub: [URL='https://github.com/kevinrossen/pool-chemistry-advisor']github.com/kevinrossen/pool-chemistry-advisor[/URL]. There are also versions for Claude (Anthropic) if anyone uses that.
+
+This is a personal project — not affiliated with TFP or Pool Math in any way. It's built on the methodology I've learned from this community and Pool School. Pool Math is still doing the heavy lifting for tracking and dosing calculations; this just adds an AI layer on top for quick analysis.
+
+I'd love to hear how it works for your pool. Different volumes, surfaces, climates, SWG vs manual chlorine — all of that affects how useful the recommendations are. If something seems off or you have suggestions, let me know here or open an issue on the GitHub repo.

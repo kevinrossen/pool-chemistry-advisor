@@ -1,0 +1,179 @@
+openapi: 3.1.0
+info:
+  title: Pool Math Share API
+  description: Retrieve structured Pool Math JSON, including recent logs, from a Trouble Free Pool Pool Math share code.
+  version: 3.0.0
+servers:
+  - url: https://api.poolmathapp.com
+paths:
+  /share/{shareCode}:
+    get:
+      operationId: getPoolMathShareData
+      summary: Fetch pool overview and recent logs from a Pool Math share code
+      description: >-
+        Use this when the user provides a Pool Math share URL such as
+        https://troublefreepool.com/mypool/XXXXXXX or just the share code itself.
+        Extract the trailing share code and pass it as shareCode. Always request
+        JSON with 25 recent logs.
+      parameters:
+        - name: shareCode
+          in: path
+          required: true
+          description: The short code from the Pool Math share URL, such as XXXXXXX.
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          description: Response format. Always set to json.
+          schema:
+            type: string
+            enum:
+              - json
+            default: json
+        - name: recentLogs
+          in: query
+          required: true
+          description: Number of recent logs to include. Always set to 25 so analysis has log history.
+          schema:
+            type: integer
+            default: 25
+            minimum: 1
+            maximum: 100
+      responses:
+        "200":
+          description: Pool data with overview and recent logs.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+                properties:
+                  pools:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+                      properties:
+                        pool:
+                          type: object
+                          additionalProperties: true
+                          properties:
+                            userId:
+                              type: string
+                            name:
+                              type: string
+                            volume:
+                              type: integer
+                            overview:
+                              type: object
+                              additionalProperties: true
+                              properties:
+                                fc:
+                                  type:
+                                    - number
+                                    - "null"
+                                cc:
+                                  type:
+                                    - number
+                                    - "null"
+                                ph:
+                                  type:
+                                    - number
+                                    - "null"
+                                ta:
+                                  type:
+                                    - number
+                                    - "null"
+                                cya:
+                                  type:
+                                    - number
+                                    - "null"
+                                ch:
+                                  type:
+                                    - number
+                                    - "null"
+                                salt:
+                                  type:
+                                    - number
+                                    - "null"
+                                bor:
+                                  type:
+                                    - number
+                                    - "null"
+                                tds:
+                                  type:
+                                    - number
+                                    - "null"
+                                csi:
+                                  type:
+                                    - number
+                                    - "null"
+                                waterTemp:
+                                  type:
+                                    - number
+                                    - "null"
+                                fcTs:
+                                  type:
+                                    - string
+                                    - "null"
+                                phTs:
+                                  type:
+                                    - string
+                                    - "null"
+                        recentLogs:
+                          type: array
+                          items:
+                            type: object
+                            additionalProperties: true
+                            properties:
+                              type:
+                                type: string
+                                description: testlog, chemlog, or maintlog.
+                              logTimestamp:
+                                type: string
+                              chemical:
+                                type:
+                                  - integer
+                                  - "null"
+                              fc:
+                                type:
+                                  - number
+                                  - "null"
+                              ph:
+                                type:
+                                  - number
+                                  - "null"
+                              cc:
+                                type:
+                                  - number
+                                  - "null"
+                              ta:
+                                type:
+                                  - number
+                                  - "null"
+                              cya:
+                                type:
+                                  - number
+                                  - "null"
+                              ch:
+                                type:
+                                  - number
+                                  - "null"
+                              csi:
+                                type:
+                                  - number
+                                  - "null"
+                              waterTemp:
+                                type:
+                                  - number
+                                  - "null"
+                              amount:
+                                type:
+                                  - number
+                                  - "null"
+                              percent:
+                                type:
+                                  - number
+                                  - "null"
+
